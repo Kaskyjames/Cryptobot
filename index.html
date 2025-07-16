@@ -33,6 +33,7 @@
       background-color: #0f9d58;
       color: white;
       font-weight: bold;
+      cursor: pointer;
     }
     #response {
       margin-top: 15px;
@@ -53,18 +54,11 @@
 
   <script>
     async function sendMessage() {
-      const input = document.getElementById('userInput').value;
       const resBox = document.getElementById('response');
       resBox.innerHTML = 'Thinking...';
 
       try {
-        // Replace this URL with your actual bot API endpoint
-        const response = await fetch('https://your-bot-api-url.com/api/message', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: input })
-        });
-
+        const response = await fetch('https://mocki.io/v1/6d0648cf-4f31-4e80-8a3d-c3a6e776ba36');
         const data = await response.json();
         resBox.innerHTML = data.reply || 'No reply from bot.';
       } catch (err) {
